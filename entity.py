@@ -40,9 +40,11 @@ class Booking:
 
     def printTicket(self):
         print("===============================Your Boarding Pass================================================")
-        print("Your Ticket, Booking Id: :",  self.booking_id)
+        print("Welcome onboard ", self.customer.customer_name, "Your Ticket, Booking Id: :",  self.booking_id)
         print("Name: :",  self.customer.customer_name, "Email: ", self.customer.email, "Phone", self.customer.phone)
         print("Your flight details: :",  self.flight.Flight_number, "Seat Number: ", self.customer.seat.seat_number)
+        print("your flight will depart from ",  self.flight.Departure, " At ", self.flight.Departure_time)
+        print("Your will reach your destination  ", self.flight.arrival, " at ", self.flight.arrival_time)
         print("===============================================================================")
 
 
