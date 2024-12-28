@@ -42,7 +42,7 @@ class Booking:
         print("===============================Your Boarding Pass================================================")
         print("Your Ticket, Booking Id: :",  self.booking_id)
         print("Name: :",  self.customer.customer_name, "Email: ", self.customer.email, "Phone", self.customer.phone)
-        print("Your flite details: :",  self.flight.Flight_number, "Seat Number: ", self.customer.seat.seat_number)
+        print("Your flight details: :",  self.flight.Flight_number, "Seat Number: ", self.customer.seat.seat_number)
         print("===============================================================================")
 
 
