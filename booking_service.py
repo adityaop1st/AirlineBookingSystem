@@ -27,10 +27,10 @@ def create_payment(payment):
     return payment
 
 def create_booking(booking):
-    query = """INSERT INTO booking(booking_date, booking_status, customer_id, payment_id, Flight_id) values (%s,%s,%s,%s,%s)"""
+    query = """INSERT INTO booking(booking_date, booking_status, customer_id, payment_id, Flight_id) values (%s, %s, %s, %s, %s)"""
     connection = connect()
     cursor = connection.cursor()
-    criteria = ( booking.booking_date ,booking.booking_status, booking.customer.customer_id, booking.payment.payment_id, booking.flight.Flight_id)
+    criteria = ( booking.booking_date, booking.booking_status, booking.customer.customer_id, booking.payment.payment_id, booking.flight.Flight_id)
     cursor.execute(query, criteria)
     new_id = cursor.lastrowid
     booking.booking_id = new_id
