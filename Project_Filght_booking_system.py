@@ -77,7 +77,7 @@ def choose_a_flight(available_flights):
         raise Exception("No Flight Available")
     else:
         print("AVAILABLE FLIGHTS")
-        print("Airline", "," "Flight No","," "Arival", ",", "Depature", "Arival Time", "," , "Departure time")
+        print("Airline", "," "Flight No","," "arrival", ",", "Depature", "arrival Time", "," , "Departure time")
         print("===============================================================================")
         for f in available_flights:
             flight = ", ".join(str(element) for element in f)

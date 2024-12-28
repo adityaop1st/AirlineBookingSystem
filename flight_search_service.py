@@ -1,20 +1,20 @@
 from connection_manager import connect
 from entity import Seat
 
-def search_flight(departure, arival, date):
-    query = """SELECT A.NAME, F.Flight_number, F.Departure, F.Arival, TIME(F.Departure_time), TIME(F.Arival_time)
+def search_flight(departure, arrival, date):
+    query = """SELECT A.NAME, F.Flight_number, F.Departure, F.arrival, TIME(F.Departure_time), TIME(F.arrival_time)
                 FROM FLIGHT F, AIRLINE A
                 WHERE F.airline_id=A.airline_id 
-                AND F.Departure= %s AND F.Arival = %s AND DATE(F.Departure_time)= %s"""
+                AND F.Departure= %s AND F.arrival = %s AND DATE(F.Departure_time)= %s"""
     connection = connect()
     cursor = connection.cursor()
-    criteria = ( departure, arival, date)
+    criteria = ( departure, arrival, date)
     cursor.execute(query, criteria)
     data=cursor.fetchall()
     return data
 
 def get_flight_detail(flight_number):
-    query = """SELECT A.NAME, F.Flight_number, F.Departure, F.Arival, TIME(F.Departure_time), TIME(F.Arival_time), F.flight_id, A.airline_id
+    query = """SELECT A.NAME, F.Flight_number, F.Departure, F.arrival, TIME(F.Departure_time), TIME(F.arrival_time), F.flight_id, A.airline_id
                 FROM FLIGHT F, AIRLINE A
                 WHERE F.airline_id=A.airline_id 
                 AND F.Flight_number= %s"""

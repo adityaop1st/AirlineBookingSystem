@@ -32,9 +32,9 @@ create table flight(
 	Flight_id char(15) primary key,
     Flight_number char(15),
     Departure varchar(10),
-    Arival varchar(10),
+    arrival varchar(10),
     Departure_time datetime,
-    Arival_time datetime,
+    arrival_time datetime,
     airline_id char(5),
 	FOREIGN KEY (airline_id) REFERENCES airline(airline_id)
     );

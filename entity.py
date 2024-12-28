@@ -8,13 +8,13 @@ class Customer:
 
 
 class Flight:
-    def __init__(self, Flight_id, Flight_number, Departure, Arival, Departure_time, Arival_time):
+    def __init__(self, Flight_id, Flight_number, Departure, arrival, Departure_time, arrival_time):
         self.Flight_id=Flight_id
         self.Flight_number=Flight_number
-        self.Arival=Arival
+        self.arrival=arrival
         self.Departure=Departure
         self.Departure_time=Departure_time
-        self.Arival_time = Arival_time
+        self.arrival_time = arrival_time
 class Seat:
     def __init__(self, seat_id, seat_number,seat_class, price ):
         self.seat_id=seat_id
