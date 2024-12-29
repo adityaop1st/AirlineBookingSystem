@@ -7,9 +7,9 @@ from datetime import date
 def customer_login():
     print("Login Details")
     print("===============================================================================")
-    user_id = input("User Name: aditya") or "aditya"
+    user_id = input("User Name: defalut - aditya ::") or "aditya"
     #"aditya"
-    password1 = input("Enter password: ***** ") or "test"
+    password1 = input("Enter password: - defalut *****:: ") or "test"
     #"test"
     isSucessful = login(user_id, password1)
     return isSucessful
@@ -18,7 +18,6 @@ def create_customer_from(name, email, phone,seat):
     return Customer(name,email,phone,seat)
 
 def proceed_with_payment(seat):
-    print(seat.__dict__)
     amount = seat.price
     print("Total Payment:", amount)
     should_continue = input("Please confirm with payment through UPI, Values [Yes, No] default - Yes:: " ) or "Yes"
@@ -29,7 +28,7 @@ def proceed_with_payment(seat):
 
 
 def get_flight(flight_details):
-    return Flight(flight_details[6], flight_details[1], flight_details[3], "", flight_details[4],flight_details[5])
+    return Flight(flight_details[6], flight_details[1], flight_details[2], flight_details[3], flight_details[4],flight_details[5])
 
 
 def book_a_ticket(customer, payment, flight):
@@ -77,7 +76,7 @@ def choose_a_flight(available_flights):
         raise Exception("No Flight Available")
     else:
         print("AVAILABLE FLIGHTS")
-        print("Airline", "," "Flight No","," "arrival", ",", "Depature", "arrival Time", "," , "Departure time")
+        print("Airline", "," "Flight No","," "arrival", ",", "Departure", ",", "arrival Time", ",", "Departure time")
         print("===============================================================================")
         for f in available_flights:
             flight = ", ".join(str(element) for element in f)
@@ -89,9 +88,9 @@ def choose_a_flight(available_flights):
 def search_flight_data():
     print("Search Flight details")
     print("=========================")
-    arrival = input("Arrival -PNQ : ") or "PNQ"
-    departure = input("Departure -ADI: ") or "ADI"
-    date = input("Enter travail Date -2024/12/26:") or "2024/12/26"
+    arrival = input("Arrival - PNQ : ") or "PNQ"
+    departure = input("Departure - ADI: ") or "ADI"
+    date = input("Enter traval Date -2024/12/26:") or "2024/12/26"
 
     available_flights = search_flight(arrival, departure, date)
     return available_flights

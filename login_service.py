@@ -9,7 +9,7 @@ def login(user_name, password):
     criteria = ( user_name, password)
     cursor.execute(query, criteria)
     data=cursor.fetchall()
-    if len(data)==0:
+    if len(data) == 0:
         return False
     else:
         return True
