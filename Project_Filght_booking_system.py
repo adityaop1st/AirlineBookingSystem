@@ -1,6 +1,6 @@
 from booking_service import create_booking, create_payment,create_customer
 from login_service import login
-from flight_search_service import search_flight, get_flight_detail, get_seat_details
+from flight_search_service import search_flight, get_flight_detail
 from entity import Customer, Payment, Flight, Booking
 from datetime import date
 
@@ -25,10 +25,6 @@ def proceed_with_payment(seat):
         raise Exception("Bookinig aborted, please try again")
     payment = Payment(amount, date.today(), "UPI")
     return payment
-
-
-def get_flight(flight_details):
-    return Flight(flight_details[6], flight_details[1], flight_details[2], flight_details[3], flight_details[4],flight_details[5])
 
 
 def book_a_ticket(customer, payment, flight):

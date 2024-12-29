@@ -53,17 +53,3 @@ def get_flight_detail(flight_number):
     create_seats(available_seats, flight)
     return flight
 
-
-def get_seat_details(seat_number):
-    seat_query = """SELECT seat_id, seat_number, class, price from seat WHERE seat_id= %s"""
-    connection = connect()
-    cursor = connection.cursor()
-    criteria = (seat_number,)
-    cursor.execute(seat_query, criteria)
-    selected_seat=cursor.fetchone()
-    seat = Seat(selected_seat[0], selected_seat[1], selected_seat[2], selected_seat[3])
-    return seat
-
-flight_id='SG-2962'
-flight = get_flight_detail(flight_id)
-print(flight.__dict__)
