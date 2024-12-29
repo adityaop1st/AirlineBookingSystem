@@ -44,31 +44,26 @@ def print_a_ticket(booking):
 
 
 def book_a_flight(flight_code):
-    data = get_flight_detail(flight_code)
-    flight_details = data[0]
-
-    available_seat = data[1]
-    if len(available_seat) == 0:
+    choosen_flight = get_flight_detail(flight_code)
+    if len(choosen_flight.seats) == 0:
         raise Exception("Sorry, all seats are booked")
 
     print("Available seats")
-    flight = ", ".join(str(element) for element in flight_details)
-    print(flight)
-    for f in available_seat:
-        seat = ", ".join(str(element) for element in f)
-        print(seat)
+    print("Seat Id, Seat_number, class, Price")
+    print("===============================================")
+    for seat in choosen_flight.seats:
+        print(seat.seat_id, seat.seat_number, seat.seat_class, seat.price)
     print("===============================================================================")
     seat_id = input("Please choose seat default - SG-62-A-001:: ") or "SG-62-A-001"
-    seat = get_seat_details(seat_id)
+    choosen_seat = choosen_flight.get_seat(seat_id)
 
     name = input("Enter name default - Aditya::") or "Aditya"
     email = input("Enter Email default - aditya@gmail,com ::") or "aditya@gmail,com"
     phone = input("Enter Phone Number default - 989833333::") or "989833333"
 
-    flight = get_flight(flight_details)
-    customer = create_customer_from(name, email,phone, seat)
-    payment = proceed_with_payment(seat)
-    booking = book_a_ticket(customer, payment, flight)
+    customer = create_customer_from(name, email,phone, choosen_seat)
+    payment = proceed_with_payment(choosen_seat)
+    booking = book_a_ticket(customer, payment, choosen_flight)
     print_a_ticket(booking)
 
 def choose_a_flight(available_flights):
@@ -78,9 +73,10 @@ def choose_a_flight(available_flights):
         print("AVAILABLE FLIGHTS")
         print("Airline", "," "Flight No","," "arrival", ",", "Departure", ",", "arrival Time", ",", "Departure time")
         print("===============================================================================")
+
         for f in available_flights:
-            flight = ", ".join(str(element) for element in f)
-            print(flight)
+            print(f.airline.airline_name, f.Flight_number, f.arrival, f.Departure, f.arrival_time, f.Departure_time)
+
         print("===============================================================================")
         flight_code = input("Choose flight to book - SG-2961:: ") or "SG-2961"
         return flight_code

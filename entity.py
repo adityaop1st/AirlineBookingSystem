@@ -7,14 +7,34 @@ class Customer:
         self.seat = seat
 
 
+class Airline:
+    def __init__(self, airline_id, airline_name, country):
+        self.airline_id = airline_id
+        self.airline_name = airline_name
+        self.country = country
+
 class Flight:
-    def __init__(self, Flight_id, Flight_number, Departure, arrival, Departure_time, arrival_time):
+    def __init__(self, airline, Flight_id, Flight_number, Departure, arrival, Departure_time, arrival_time):
+        self.airline=airline
         self.Flight_id=Flight_id
         self.Flight_number=Flight_number
         self.arrival=arrival
         self.Departure=Departure
         self.Departure_time=Departure_time
         self.arrival_time = arrival_time
+        self.seats = []
+    def addSeat(self, seat):
+        self.seats.append(seat)
+
+    def get_seat(self, seat_id):
+        choosen_seat = ""
+        for s in self.seats:
+            if s.seat_id == seat_id:
+                choosen_seat= s
+                break
+        return choosen_seat
+
+
 class Seat:
     def __init__(self, seat_id, seat_number, seat_class, price ):
         self.seat_id = seat_id
